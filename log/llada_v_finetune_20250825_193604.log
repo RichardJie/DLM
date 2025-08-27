@@ -1,0 +1,153 @@
+[2025-08-25 19:36:19,719] torch.distributed.run: [WARNING] 
+[2025-08-25 19:36:19,719] torch.distributed.run: [WARNING] *****************************************
+[2025-08-25 19:36:19,719] torch.distributed.run: [WARNING] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+[2025-08-25 19:36:19,719] torch.distributed.run: [WARNING] *****************************************
+[2025-08-25 19:36:26,994] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-08-25 19:36:26,994] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-08-25 19:36:26,994] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Please install pyav to use video processing functions.
+Please install pyav to use video processing functions.
+Please install pyav to use video processing functions.
+/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+OpenCLIP not installed
+OpenCLIP not installed
+OpenCLIP not installed
+[2025-08-25 19:36:43,411] [INFO] [comm.py:637:init_distributed] cdb=None
+[2025-08-25 19:36:43,422] [INFO] [comm.py:637:init_distributed] cdb=None
+[2025-08-25 19:36:43,694] [INFO] [comm.py:637:init_distributed] cdb=None
+[2025-08-25 19:36:43,694] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+You are using a model of type llava_llada to instantiate a model of type llada. This is not supported for all configurations of models and can yield errors.
+Rank 0:  Overwriting config with {'use_pos_skipping': False, 'pos_skipping_range': 4096, 'mm_spatial_pool_mode': 'bilinear'}
+You are using a model of type llava_llada to instantiate a model of type llada. This is not supported for all configurations of models and can yield errors.
+You are using a model of type llava_llada to instantiate a model of type llada. This is not supported for all configurations of models and can yield errors.
+Rank 0:  Loading vision tower: google/siglip2-so400m-patch14-384
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:  17%|█▋        | 1/6 [00:03<00:15,  3.17s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:03<00:16,  3.26s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:03<00:16,  3.33s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:11<00:23,  5.98s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:10<00:23,  5.84s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:11<00:25,  6.41s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:19<00:21,  7.27s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:20<00:22,  7.50s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:19<00:21,  7.19s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:23<00:11,  5.71s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:23<00:11,  5.73s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:24<00:11,  5.95s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:26<00:04,  4.75s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:26<00:04,  4.85s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:27<00:05,  5.01s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:28<00:00,  3.81s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:28<00:00,  4.71s/it]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Loading checkpoint shards: 100%|██████████| 6/6 [00:28<00:00,  3.96s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:28<00:00,  4.79s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:29<00:00,  4.06s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:29<00:00,  4.96s/it]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Rank 0:  Prompt version: llava_llada
+Rank 0:  google/siglip2-so400m-patch14-384 is already loaded, `load_model` called again, skipping.
+Rank 0:  Loaded mm projector weights from /hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/exp/llada_v_finetune_1092/checkpoint-1092/mm_projector.bin. Incompatible keys: <All keys matched successfully>
+Rank 0:  Loaded vision resampler weights from /hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/exp/llada_v_finetune_1092/checkpoint-1092/mm_projector.bin. Incompatible keys: <All keys matched successfully>
+Rank 0:  Using mm_tunable_parts: mm_mlp_adapter,mm_language_model
+Rank 0:  Total parameters: ~8433.89 MB)
+Rank 0:  Trainable parameters: ~8036.15 MB)
+Rank 0:  Loading data using traditional JSON format
+Rank 0:  Loading /hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/dataset/textvqa_bbox_coords_384/textvqa_bbox_coords_llava_384.json
+Rank 0:  Loaded 4370 samples from /hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/dataset/textvqa_bbox_coords_384/textvqa_bbox_coords_llava_384.json
+Rank 0:  Loaded 4370 samples from /hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/dataset/textvqa_bbox_coords_384/textvqa_bbox_coords_llava_384.json
+Rank 0:  Formatting inputs...Skip in lazy mode
+Rank 0:  Setting NCCL timeout to INF to avoid running errors.
+Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Installed CUDA version 12.2 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+Using /hpc2hdd/home/yuxuanzhao/.cache/torch_extensions/py39_cu121 as PyTorch extensions root...
+Installed CUDA version 12.2 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combinationInstalled CUDA version 12.2 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+
+Using /hpc2hdd/home/yuxuanzhao/.cache/torch_extensions/py39_cu121 as PyTorch extensions root...Using /hpc2hdd/home/yuxuanzhao/.cache/torch_extensions/py39_cu121 as PyTorch extensions root...
+
+Detected CUDA files, patching ldflags
+Emitting ninja build file /hpc2hdd/home/yuxuanzhao/.cache/torch_extensions/py39_cu121/fused_adam/build.ninja...
+Building extension module fused_adam...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module fused_adam...
+Loading extension module fused_adam...Loading extension module fused_adam...
+
+Time to load fused_adam op: 0.4933969974517822 seconds
+Time to load fused_adam op: 0.4934070110321045 seconds
+Time to load fused_adam op: 0.533379077911377 seconds
+Traceback (most recent call last):
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_mem.py", line 4, in <module>
+    train()
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train.py", line 2021, in train
+    trainer.train()
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/transformers/trainer.py", line 1859, in train
+    return inner_training_loop(
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/transformers/trainer.py", line 2015, in _inner_training_loop
+    model, self.optimizer, self.lr_scheduler = self.accelerator.prepare(
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/accelerate/accelerator.py", line 1266, in prepare
+    result = self._prepare_deepspeed(*args)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/accelerate/accelerator.py", line 1652, in _prepare_deepspeed
+    engine, optimizer, _, lr_scheduler = deepspeed.initialize(**kwargs)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/__init__.py", line 171, in initialize
+    engine = DeepSpeedEngine(args=args,
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/runtime/engine.py", line 304, in __init__
+    self._configure_optimizer(optimizer, model_parameters)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/runtime/engine.py", line 1219, in _configure_optimizer
+    self.optimizer = self._configure_zero_optimizer(basic_optimizer)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/runtime/engine.py", line 1480, in _configure_zero_optimizer
+    optimizer = DeepSpeedZeroOptimizer(
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 510, in __init__
+    self.initialize_optimizer_states()
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 633, in initialize_optimizer_states
+    single_grad_partition = torch.zeros(int(self.partition_size[i]),
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 9.98 GiB. GPU 2 has a total capacty of 79.33 GiB of which 6.86 GiB is free. Process 3198369 has 4.11 GiB memory in use. Process 727621 has 2.78 GiB memory in use. Process 4093625 has 38.56 GiB memory in use. Process 3423977 has 26.98 GiB memory in use. Of the allocated memory 25.95 GiB is allocated by PyTorch, and 38.75 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+Traceback (most recent call last):
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_mem.py", line 4, in <module>
+    train()
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train.py", line 2021, in train
+    trainer.train()
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/transformers/trainer.py", line 1859, in train
+    return inner_training_loop(
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/transformers/trainer.py", line 2015, in _inner_training_loop
+    model, self.optimizer, self.lr_scheduler = self.accelerator.prepare(
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/accelerate/accelerator.py", line 1266, in prepare
+    result = self._prepare_deepspeed(*args)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/accelerate/accelerator.py", line 1652, in _prepare_deepspeed
+    engine, optimizer, _, lr_scheduler = deepspeed.initialize(**kwargs)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/__init__.py", line 171, in initialize
+    engine = DeepSpeedEngine(args=args,
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/runtime/engine.py", line 304, in __init__
+    self._configure_optimizer(optimizer, model_parameters)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/runtime/engine.py", line 1219, in _configure_optimizer
+    self.optimizer = self._configure_zero_optimizer(basic_optimizer)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/runtime/engine.py", line 1480, in _configure_zero_optimizer
+    optimizer = DeepSpeedZeroOptimizer(
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 510, in __init__
+    self.initialize_optimizer_states()
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/runtime/zero/stage_1_and_2.py", line 645, in initialize_optimizer_states
+    self.optimizer.step()
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/optim/optimizer.py", line 373, in wrapper
+    out = func(*args, **kwargs)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/ops/adam/fused_adam.py", line 155, in step
+    state['exp_avg'] = torch.zeros_like(p.data)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 9.98 GiB. GPU 1 has a total capacty of 79.33 GiB of which 8.77 GiB is free. Process 3184351 has 5.72 GiB memory in use. Process 3194724 has 5.72 GiB memory in use. Process 1536081 has 22.04 GiB memory in use. Process 3423976 has 37.06 GiB memory in use. Of the allocated memory 35.93 GiB is allocated by PyTorch, and 40.26 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+[2025-08-25 19:38:04,877] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 1835066 closing signal SIGTERM
+[2025-08-25 19:38:04,878] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 1835067 closing signal SIGTERM
+[2025-08-25 19:38:05,911] torch.distributed.elastic.multiprocessing.api: [ERROR] failed (exitcode: 1) local_rank: 2 (pid: 1835068) of binary: /hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/bin/python
+Traceback (most recent call last):
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/bin/torchrun", line 33, in <module>
+    sys.exit(load_entry_point('torch==2.1.2', 'console_scripts', 'torchrun')())
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 346, in wrapper
+    return f(*args, **kwargs)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/run.py", line 806, in main
+    run(args)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/run.py", line 797, in run
+    elastic_launch(
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+llava/train/train_mem.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-08-25_19:38:04
+  host      : 956aa2bad2ae
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 1835068)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

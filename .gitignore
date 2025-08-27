@@ -1,0 +1,81 @@
+dataset/
+train/# Python
+train/__pycache__
+train/*.pyc
+train/*.egg-info
+train/dist
+
+train/# Log
+train/*.log
+train/*.log.*
+# train/*.json
+# train/*.jsonl
+
+train/# Data
+!train/**/alpaca-data-conversation.json
+train/# Editor
+train/.idea
+train/*.swp
+train/.vscode
+
+train/# Other
+train/.DS_Store
+train/wandb
+train/output
+train/llavavid
+
+train/checkpoints
+train/project_checkpoints
+train/debug_checkpoints
+train/playground/data
+train/playground/cc3m_llava34b_cap
+train/ckpts*
+
+train/.ipynb_checkpoints
+train/chunyl_scripts
+train/*.ipynb
+
+train/# DevContainer
+!train/.devcontainer/*
+
+train/# Demo
+train/serve_images/
+train/notebooks/
+train/logs
+train/scripts/dist_*
+train/logs/
+train/submissions/
+train/cn_scripts/
+train/internal_project_checkpoints/
+train/work_dirs
+train/scripts/i18n/*
+train/playground/.nfs028b000000010add00000001
+train/HIP
+train/playground/.nfs028b0000017bff2c00000012
+train/scripts/qwen
+train/scripts/vicuna
+train/scripts/mistral
+train/scripts/baseline_rep
+train/scripts/cn_boli01_hl
+train/scripts/cn_boli01_lf
+train/scripts/cn_lf
+train/scripts/cn_lq
+train/scripts/cn_yg
+train/scripts/cn_yg_hao
+train/scripts/eva_encoder
+train/scripts/i18n
+train/scripts/i18n_higher_res
+train/scripts/multi-images
+train/scratchpad
+train/build/
+train/playground/*.json
+train/mlx_configs/
+train/data_processing/
+# train/demo/
+
+# train/*test*
+train/test.py
+train/demo/
+
+train/exp
+train/models

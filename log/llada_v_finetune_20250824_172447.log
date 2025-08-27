@@ -1,0 +1,119 @@
+[2025-08-24 17:25:08,177] torch.distributed.run: [WARNING] 
+[2025-08-24 17:25:08,177] torch.distributed.run: [WARNING] *****************************************
+[2025-08-24 17:25:08,177] torch.distributed.run: [WARNING] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+[2025-08-24 17:25:08,177] torch.distributed.run: [WARNING] *****************************************
+[2025-08-24 17:25:16,813] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-08-24 17:25:16,814] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-08-24 17:25:16,814] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Please install pyav to use video processing functions.
+Please install pyav to use video processing functions.
+Please install pyav to use video processing functions.
+/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+OpenCLIP not installedOpenCLIP not installedOpenCLIP not installed
+
+
+[2025-08-24 17:25:34,748] [INFO] [comm.py:637:init_distributed] cdb=None
+[2025-08-24 17:25:34,748] [INFO] [comm.py:637:init_distributed] cdb=None
+[2025-08-24 17:25:34,748] [INFO] [comm.py:637:init_distributed] cdb=None
+[2025-08-24 17:25:34,748] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+You are using a model of type llava_llada to instantiate a model of type llada. This is not supported for all configurations of models and can yield errors.
+Rank 0:  Overwriting config with {'use_pos_skipping': False, 'pos_skipping_range': 4096, 'mm_spatial_pool_mode': 'bilinear'}
+You are using a model of type llava_llada to instantiate a model of type llada. This is not supported for all configurations of models and can yield errors.
+You are using a model of type llava_llada to instantiate a model of type llada. This is not supported for all configurations of models and can yield errors.
+Rank 0:  Loading vision tower: google/siglip2-so400m-patch14-384
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:  17%|█▋        | 1/6 [00:08<00:40,  8.04s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:08<00:40,  8.00s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:08<00:40,  8.05s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:16<00:32,  8.07s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:16<00:32,  8.06s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:16<00:32,  8.07s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:24<00:24,  8.15s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:24<00:24,  8.15s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:24<00:24,  8.15s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:31<00:15,  7.94s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:31<00:15,  7.94s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:31<00:15,  7.93s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:39<00:07,  7.88s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:39<00:07,  7.89s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:39<00:07,  7.88s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.11s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.56s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.13s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.57s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.15s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:45<00:00,  7.58s/it]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Rank 0:  Prompt version: llava_llada
+Rank 0:  google/siglip2-so400m-patch14-384 is already loaded, `load_model` called again, skipping.
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Rank 0:  Using mm_tunable_parts: mm_mlp_adapter
+Rank 0:  Total parameters: ~8433.89 MB)
+Rank 0:  Trainable parameters: ~21.50 MB)
+Rank 0:  Loading data using traditional JSON format
+Rank 0:  Loading /hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/dataset/textvqa_bbox_coords_384/textvqa_bbox_coords_llava_384.json
+Rank 0:  Loaded 4370 samples from /hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/dataset/textvqa_bbox_coords_384/textvqa_bbox_coords_llava_384.json
+Rank 0:  Loaded 4370 samples from /hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/dataset/textvqa_bbox_coords_384/textvqa_bbox_coords_llava_384.json
+Rank 0:  Formatting inputs...Skip in lazy mode
+Rank 0:  Setting NCCL timeout to INF to avoid running errors.
+Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Traceback (most recent call last):
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_mem.py", line 4, in <module>
+    train()
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train.py", line 2019, in train
+Traceback (most recent call last):
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_mem.py", line 4, in <module>
+    train()
+Traceback (most recent call last):
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train.py", line 2019, in train
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_mem.py", line 4, in <module>
+    train()
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train.py", line 2019, in train
+    trainer.train(resume_from_checkpoint=True)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/transformers/trainer.py", line 1833, in train
+    trainer.train(resume_from_checkpoint=True)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/transformers/trainer.py", line 1833, in train
+    trainer.train(resume_from_checkpoint=True)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/transformers/trainer.py", line 1833, in train
+    state = TrainerState.load_from_json(os.path.join(resume_from_checkpoint, TRAINER_STATE_NAME))
+      File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/transformers/trainer_callback.py", line 121, in load_from_json
+state = TrainerState.load_from_json(os.path.join(resume_from_checkpoint, TRAINER_STATE_NAME))
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/transformers/trainer_callback.py", line 121, in load_from_json
+    state = TrainerState.load_from_json(os.path.join(resume_from_checkpoint, TRAINER_STATE_NAME))
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/transformers/trainer_callback.py", line 121, in load_from_json
+        with open(json_path, "r", encoding="utf-8") as f:with open(json_path, "r", encoding="utf-8") as f:
+
+FileNotFoundErrorFileNotFoundError: [Errno 2] No such file or directory: 'exp/llada_v_finetune/checkpoint-182/trainer_state.json'
+: [Errno 2] No such file or directory: 'exp/llada_v_finetune/checkpoint-182/trainer_state.json'
+    with open(json_path, "r", encoding="utf-8") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'exp/llada_v_finetune/checkpoint-182/trainer_state.json'
+[2025-08-24 17:26:43,361] torch.distributed.elastic.multiprocessing.api: [ERROR] failed (exitcode: 1) local_rank: 0 (pid: 3393557) of binary: /hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/bin/python
+Traceback (most recent call last):
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/bin/torchrun", line 33, in <module>
+    sys.exit(load_entry_point('torch==2.1.2', 'console_scripts', 'torchrun')())
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 346, in wrapper
+    return f(*args, **kwargs)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/run.py", line 806, in main
+    run(args)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/run.py", line 797, in run
+    elastic_launch(
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+llava/train/train_mem.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2025-08-24_17:26:43
+  host      : 956aa2bad2ae
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 3393558)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[2]:
+  time      : 2025-08-24_17:26:43
+  host      : 956aa2bad2ae
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 3393559)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-08-24_17:26:43
+  host      : 956aa2bad2ae
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 3393557)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
