@@ -33,28 +33,36 @@ echo "Log file: $LOG_FILE"
 
 # 单卡示例：调用时用 bash llada_v_finetune.sh 1 1
 # 不再强制设置 CUDA_VISIBLE_DEVICES，或根据需要自己在命令行外部设置
+
+# PYTHONUNBUFFERED=1 CUDA_VISIBLE_DEVICES=0,1,2 stdbuf -oL -eL \
+# python -m debugpy --listen localhost:5678 --wait-for-client \
+#   -m torch.distributed.run \
+#   --nproc_per_node=${gpu_num} \
+#   --nnodes=${num_node} \
+#   --master_addr=${MASTER_ADDR} \
+#   --master_port=${MASTER_PORT} \
+#   --node_rank=${RANK} \
 PYTHONUNBUFFERED=1 CUDA_VISIBLE_DEVICES=0,1,2 stdbuf -oL -eL torchrun --nproc_per_node=${gpu_num} --nnodes=${num_node} \
-  --master_addr=${MASTER_ADDR} --master_port ${MASTER_PORT} --node_rank=${RANK} \
+--master_addr=${MASTER_ADDR} --master_port ${MASTER_PORT} --node_rank=${RANK} \
   llava/train/train_mem.py \
-  --deepspeed scripts/zero3.json \
+  --deepspeed scripts/zero2.json \
   --model_name_or_path ${LLM_VERSION} \
   --version ${PROMPT_VERSION} \
-  --data_path "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/dataset/textvqa_bbox_coords_384/textvqa_bbox_coords_llava_384.json" \
-  --image_folder "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/dataset/textvqa_bbox_coords_384" \
+  --data_path "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/dataset/coco2017/llava_multi/coco_val2017_grouped_by_category.json" \
+  --image_folder "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/dataset/coco2017" \
   --video_folder "" \
   --vision_tower ${VISION_MODEL_VERSION} \
+  --image_aspect_ratio square \
   --mm_projector_type mlp2x_gelu \
   --mm_vision_select_layer -2 \
   --mm_use_im_start_end False \
   --mm_use_im_patch_token False \
   --group_by_modality_length True \
-  --image_aspect_ratio anyres_max_4 \
-  --image_grid_pinpoints "(1x1),...,(6x6)" \
   --mm_patch_merge_type spatial_unpad \
   --bf16 True \
   --run_name $BASE_RUN_NAME \
   --output_dir "exp/$BASE_RUN_NAME" \
-  --num_train_epochs 10 \
+  --num_train_epochs 2 \
   --per_device_train_batch_size 4 \
   --gradient_accumulation_steps 4 \
   --save_strategy "epoch" \
@@ -80,7 +88,7 @@ PYTHONUNBUFFERED=1 CUDA_VISIBLE_DEVICES=0,1,2 stdbuf -oL -eL torchrun --nproc_pe
   --freeze_backbone True \
   --lora_enable True \
   --lora_r 32 \
-  --lora_alpha 32 \
+  --lora_alpha 64 \
   --lora_dropout 0.05 \
   2>&1 | tee -a "$LOG_FILE"
   # --pretrain_mm_mlp_adapter /hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/exp/llada_v_finetune_1092/checkpoint-1092/mm_projector.bin \

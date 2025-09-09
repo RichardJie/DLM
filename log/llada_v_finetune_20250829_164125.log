@@ -1,0 +1,14 @@
+debugpy 1.8.16
+See https://aka.ms/debugpy for documentation.
+
+Usage: debugpy --listen | --connect
+               [<host>:]<port>
+               [--wait-for-client]
+               [--configure-<name> <value>]...
+               [--log-to <path>] [--log-to-stderr]
+               [--parent-session-pid <pid>]]
+               [--adapter-access-token <token>]
+               <filename> | -m <module> | -c <code> | --pid <pid>
+               [<arg>]...
+
+Error: unrecognized switch --nproc_per_node=3

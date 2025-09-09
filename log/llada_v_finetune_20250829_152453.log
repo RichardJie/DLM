@@ -1,0 +1,161 @@
+[2025-08-29 15:24:55,248] torch.distributed.run: [WARNING] 
+[2025-08-29 15:24:55,248] torch.distributed.run: [WARNING] *****************************************
+[2025-08-29 15:24:55,248] torch.distributed.run: [WARNING] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+[2025-08-29 15:24:55,248] torch.distributed.run: [WARNING] *****************************************
+[2025-08-29 15:24:58,111] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-08-29 15:24:58,141] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-08-29 15:24:58,174] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Please install pyav to use video processing functions.
+/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Please install pyav to use video processing functions.
+/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Please install pyav to use video processing functions.
+/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+OpenCLIP not installed
+OpenCLIP not installed
+OpenCLIP not installed
+[2025-08-29 15:25:00,560] [INFO] [comm.py:637:init_distributed] cdb=None
+[2025-08-29 15:25:00,688] [INFO] [comm.py:637:init_distributed] cdb=None
+[2025-08-29 15:25:00,810] [INFO] [comm.py:637:init_distributed] cdb=None
+[2025-08-29 15:25:00,810] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+You are using a model of type llava_llada to instantiate a model of type llada. This is not supported for all configurations of models and can yield errors.
+You are using a model of type llava_llada to instantiate a model of type llada. This is not supported for all configurations of models and can yield errors.
+Rank 0:  Overwriting config with {'use_pos_skipping': False, 'pos_skipping_range': 4096, 'mm_spatial_pool_mode': 'bilinear'}
+You are using a model of type llava_llada to instantiate a model of type llada. This is not supported for all configurations of models and can yield errors.
+Rank 0:  Loading vision tower: google/siglip2-so400m-patch14-384
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:  17%|█▋        | 1/6 [00:03<00:17,  3.47s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:03<00:17,  3.40s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:03<00:17,  3.48s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:07<00:14,  3.60s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:07<00:14,  3.59s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:07<00:14,  3.61s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:10<00:10,  3.47s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:10<00:10,  3.54s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:10<00:10,  3.55s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:13<00:06,  3.44s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:14<00:07,  3.52s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:14<00:07,  3.55s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:17<00:03,  3.46s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:17<00:03,  3.52s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:17<00:03,  3.52s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:19<00:00,  2.92s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:19<00:00,  3.21s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:20<00:00,  3.17s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:20<00:00,  3.35s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:20<00:00,  3.25s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:20<00:00,  3.40s/it]
+Rank 0:  Adding LoRA adapters...
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Rank 0:  Prompt version: llava_llada
+Rank 0:  google/siglip2-so400m-patch14-384 is already loaded, `load_model` called again, skipping.
+Rank 0:  Total parameters: ~8523.53 MB)
+Rank 0:  Trainable parameters: ~105.39 MB)
+Rank 0:  Loading data using traditional JSON format
+Rank 0:  Loading /hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/dataset/coco2017/llava_multi/coco_val2017_grouped_by_category.json
+Rank 0:  Loaded 4952 samples from /hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/dataset/coco2017/llava_multi/coco_val2017_grouped_by_category.json
+Rank 0:  Loaded 4952 samples from /hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/dataset/coco2017/llava_multi/coco_val2017_grouped_by_category.json
+Rank 0:  Formatting inputs...Skip in lazy mode
+Rank 0:  Setting NCCL timeout to INF to avoid running errors.
+Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Installed CUDA version 12.2 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+Using /hpc2hdd/home/yuxuanzhao/.cache/torch_extensions/py39_cu121 as PyTorch extensions root...
+Installed CUDA version 12.2 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+Using /hpc2hdd/home/yuxuanzhao/.cache/torch_extensions/py39_cu121 as PyTorch extensions root...
+Installed CUDA version 12.2 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+Using /hpc2hdd/home/yuxuanzhao/.cache/torch_extensions/py39_cu121 as PyTorch extensions root...
+Detected CUDA files, patching ldflags
+Emitting ninja build file /hpc2hdd/home/yuxuanzhao/.cache/torch_extensions/py39_cu121/fused_adam/build.ninja...
+Building extension module fused_adam...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module fused_adam...
+Loading extension module fused_adam...
+Time to load fused_adam op: 0.5351614952087402 seconds
+Time to load fused_adam op: 0.5609230995178223 seconds
+Loading extension module fused_adam...
+Time to load fused_adam op: 0.6241686344146729 seconds
+  0%|          | 0/206 [00:00<?, ?it/s]huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISMhuggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+=(true | false)
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+  0%|          | 1/206 [01:05<3:42:41, 65.18s/it]                                                 {'loss': 1.4068, 'grad_norm': 13.230077196560613, 'learning_rate': 1.4285714285714285e-05, 'epoch': 0.01}
+  0%|          | 1/206 [01:05<3:42:41, 65.18s/it]

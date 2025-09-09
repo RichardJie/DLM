@@ -77,6 +77,19 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
                 lora_cfg_pretrained = LlavaGemmaConfig.from_pretrained(model_path)
                 tokenizer = AutoTokenizer.from_pretrained(model_base, use_fast=False)
                 model = LlavaGemmaForCausalLM.from_pretrained(model_base, low_cpu_mem_usage=True, config=lora_cfg_pretrained, attn_implementation=attn_implementation, **kwargs)
+            elif "llada" in model_name.lower():
+                # ==== 新增：LoRA + LLaDA-V 的加载路径 ====
+                # 你的基座是 LLaDA-V，自然应该走 LlavaLLaDA 系列的类与 config
+                from llava.model.language_model.llava_llada import LlavaLLaDAConfig
+                lora_cfg_pretrained = LlavaLLaDAConfig.from_pretrained(model_path)
+                tokenizer = AutoTokenizer.from_pretrained(model_base, use_fast=False)
+                model = LlavaLLaDAModelLM.from_pretrained(
+                    model_base,
+                    low_cpu_mem_usage=True,
+                    config=lora_cfg_pretrained,
+                    attn_implementation=attn_implementation,
+                    **kwargs,
+                )
             else:
                 from llava.model.language_model.llava_llama import LlavaConfig
 
@@ -231,6 +244,7 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
                 tokenizer = AutoTokenizer.from_pretrained(model_path, use_fast=False)
                 cfg_pretrained = AutoConfig.from_pretrained(model_path)
                 model = LlavaGemmaForCausalLM.from_pretrained(model_path, low_cpu_mem_usage=True, config=cfg_pretrained, attn_implementation=attn_implementation, **kwargs)
+            
             elif "llada" in model_name.lower():
                 from llava.model.language_model.llava_llada import LlavaLLaDAConfig
 

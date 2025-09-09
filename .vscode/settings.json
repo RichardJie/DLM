@@ -1,0 +1,6 @@
+{
+  "python.defaultInterpreterPath": "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/bin/python",
+  "python.analysis.extraPaths": [
+    "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train"
+  ]
+}
