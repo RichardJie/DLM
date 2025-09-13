@@ -1,0 +1,177 @@
+[2025-09-13 13:08:00,442] torch.distributed.run: [WARNING] 
+[2025-09-13 13:08:00,442] torch.distributed.run: [WARNING] *****************************************
+[2025-09-13 13:08:00,442] torch.distributed.run: [WARNING] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+[2025-09-13 13:08:00,442] torch.distributed.run: [WARNING] *****************************************
+[2025-09-13 13:08:02,668] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-09-13 13:08:02,668] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-09-13 13:08:02,669] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Please install pyav to use video processing functions.
+Please install pyav to use video processing functions.
+Please install pyav to use video processing functions.
+OpenCLIP not installed
+OpenCLIP not installed
+OpenCLIP not installed
+/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+[2025-09-13 13:08:07,656] [INFO] [comm.py:637:init_distributed] cdb=None
+[2025-09-13 13:08:07,657] [INFO] [comm.py:637:init_distributed] cdb=None
+[2025-09-13 13:08:07,657] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+You are using a model of type llada to instantiate a model of type llava_llada. This is not supported for all configurations of models and can yield errors.
+You are using a model of type llada to instantiate a model of type llava_llada. This is not supported for all configurations of models and can yield errors.
+[2025-09-13 13:08:08,076] [INFO] [comm.py:637:init_distributed] cdb=None
+You are using a model of type llada to instantiate a model of type llava_llada. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:  17%|█▋        | 1/6 [00:01<00:09,  1.83s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:01<00:09,  1.98s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:01<00:09,  1.88s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:04<00:08,  2.15s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:04<00:09,  2.30s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:04<00:09,  2.25s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:06<00:06,  2.25s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:07<00:07,  2.40s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:06<00:07,  2.38s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:08<00:04,  2.27s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:09<00:04,  2.45s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:09<00:04,  2.43s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:11<00:02,  2.24s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:12<00:02,  2.46s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:11<00:02,  2.45s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:12<00:00,  1.97s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:12<00:00,  2.08s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:13<00:00,  2.22s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:13<00:00,  2.30s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:13<00:00,  2.23s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:13<00:00,  2.29s/it]
+Rank 0:  Loaded PEFT adapter from /hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/exp/llada_v_finetune (trainable).
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Rank 0:  Prompt version: llava_llada
+Rank 0:  Loading vision tower: /hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/models/siglip2-so400m-patch14-384
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Rank 0:  Total parameters: ~8518.72 MB)
+Rank 0:  Trainable parameters: ~105.39 MB)
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Rank 0:  Loading vision tower: /hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/models/siglip2-so400m-patch14-384
+Rank 0:  Loading /hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/dataset/coco2017/llava_multi/coco_val2017_DPO_pairs_small_focus.jsonl
+Rank 0:  Loaded 18059 samples from /hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/dataset/coco2017/llava_multi/coco_val2017_DPO_pairs_small_focus.jsonl
+Rank 0:  Formatting inputs...Skip in lazy mode
+/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/trl/trainer/dpo_trainer.py:239: UserWarning: `max_prompt_length` is not set in the DPOTrainer's init it will default to `128` by default, but you should do it yourself in the future.
+  warnings.warn(
+Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+[2025-09-13 13:11:21,622] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.12.2, git-hash=unknown, git-branch=unknown
+/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/trl/trainer/dpo_trainer.py:239: UserWarning: `max_prompt_length` is not set in the DPOTrainer's init it will default to `128` by default, but you should do it yourself in the future.
+  warnings.warn(
+/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/trl/trainer/dpo_trainer.py:239: UserWarning: `max_prompt_length` is not set in the DPOTrainer's init it will default to `128` by default, but you should do it yourself in the future.
+  warnings.warn(
+[2025-09-13 13:11:31,919] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/utils/cpp_extension.py:28: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import packaging  # type: ignore[attr-defined]
+/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/utils/cpp_extension.py:28: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import packaging  # type: ignore[attr-defined]
+/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/utils/cpp_extension.py:28: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import packaging  # type: ignore[attr-defined]
+Traceback (most recent call last):
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_dpo.py", line 1902, in <module>
+    train()
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_dpo.py", line 1861, in train
+    trainer = LLaVADPOTrainer(
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/trl/trainer/dpo_trainer.py", line 339, in __init__
+    self.ref_model = self._prepare_deepspeed(self.ref_model)
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/trl/trainer/dpo_trainer.py", line 366, in _prepare_deepspeed
+    model, *_ = deepspeed.initialize(model=model, config=config_kwargs)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/__init__.py", line 171, in initialize
+    engine = DeepSpeedEngine(args=args,
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/runtime/engine.py", line 304, in __init__
+    self._configure_optimizer(optimizer, model_parameters)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/runtime/engine.py", line 1193, in _configure_optimizer
+    basic_optimizer = self._configure_basic_optimizer(model_parameters)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/runtime/engine.py", line 1270, in _configure_basic_optimizer
+    optimizer = FusedAdam(
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/ops/adam/fused_adam.py", line 94, in __init__
+    fused_adam_cuda = FusedAdamBuilder().load()
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/ops/op_builder/builder.py", line 452, in load
+    return self.jit_load(verbose)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/ops/op_builder/builder.py", line 467, in jit_load
+    assert_no_cuda_mismatch(self.name)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/ops/op_builder/builder.py", line 96, in assert_no_cuda_mismatch
+    raise Exception(f">- DeepSpeed Op Builder: Installed CUDA version {sys_cuda_version} does not match the "
+Exception: >- DeepSpeed Op Builder: Installed CUDA version 12.6 does not match the version torch was compiled with 12.1, unable to compile cuda/cpp extensions without a matching cuda version.
+Traceback (most recent call last):
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_dpo.py", line 1902, in <module>
+    train()
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_dpo.py", line 1861, in train
+    trainer = LLaVADPOTrainer(
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/trl/trainer/dpo_trainer.py", line 339, in __init__
+    self.ref_model = self._prepare_deepspeed(self.ref_model)
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/trl/trainer/dpo_trainer.py", line 366, in _prepare_deepspeed
+    model, *_ = deepspeed.initialize(model=model, config=config_kwargs)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/__init__.py", line 171, in initialize
+    engine = DeepSpeedEngine(args=args,
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/runtime/engine.py", line 304, in __init__
+    self._configure_optimizer(optimizer, model_parameters)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/runtime/engine.py", line 1193, in _configure_optimizer
+    basic_optimizer = self._configure_basic_optimizer(model_parameters)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/runtime/engine.py", line 1270, in _configure_basic_optimizer
+    optimizer = FusedAdam(
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/ops/adam/fused_adam.py", line 94, in __init__
+    fused_adam_cuda = FusedAdamBuilder().load()
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/ops/op_builder/builder.py", line 452, in load
+    return self.jit_load(verbose)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/ops/op_builder/builder.py", line 467, in jit_load
+    assert_no_cuda_mismatch(self.name)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/ops/op_builder/builder.py", line 96, in assert_no_cuda_mismatch
+    raise Exception(f">- DeepSpeed Op Builder: Installed CUDA version {sys_cuda_version} does not match the "
+Exception: >- DeepSpeed Op Builder: Installed CUDA version 12.6 does not match the version torch was compiled with 12.1, unable to compile cuda/cpp extensions without a matching cuda version.
+Traceback (most recent call last):
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_dpo.py", line 1902, in <module>
+    train()
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_dpo.py", line 1861, in train
+    trainer = LLaVADPOTrainer(
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/trl/trainer/dpo_trainer.py", line 339, in __init__
+    self.ref_model = self._prepare_deepspeed(self.ref_model)
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/trl/trainer/dpo_trainer.py", line 366, in _prepare_deepspeed
+    model, *_ = deepspeed.initialize(model=model, config=config_kwargs)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/__init__.py", line 171, in initialize
+    engine = DeepSpeedEngine(args=args,
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/runtime/engine.py", line 304, in __init__
+    self._configure_optimizer(optimizer, model_parameters)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/runtime/engine.py", line 1193, in _configure_optimizer
+    basic_optimizer = self._configure_basic_optimizer(model_parameters)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/runtime/engine.py", line 1270, in _configure_basic_optimizer
+    optimizer = FusedAdam(
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/ops/adam/fused_adam.py", line 94, in __init__
+    fused_adam_cuda = FusedAdamBuilder().load()
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/ops/op_builder/builder.py", line 452, in load
+    return self.jit_load(verbose)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/ops/op_builder/builder.py", line 467, in jit_load
+    assert_no_cuda_mismatch(self.name)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/deepspeed/ops/op_builder/builder.py", line 96, in assert_no_cuda_mismatch
+    raise Exception(f">- DeepSpeed Op Builder: Installed CUDA version {sys_cuda_version} does not match the "
+Exception: >- DeepSpeed Op Builder: Installed CUDA version 12.6 does not match the version torch was compiled with 12.1, unable to compile cuda/cpp extensions without a matching cuda version.
+[2025-09-13 13:11:35,695] torch.distributed.elastic.multiprocessing.api: [ERROR] failed (exitcode: 1) local_rank: 0 (pid: 833223) of binary: /hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/bin/python
+Traceback (most recent call last):
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/bin/torchrun", line 33, in <module>
+    sys.exit(load_entry_point('torch==2.1.2', 'console_scripts', 'torchrun')())
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 346, in wrapper
+    return f(*args, **kwargs)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/run.py", line 806, in main
+    run(args)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/run.py", line 797, in run
+    elastic_launch(
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+llava/train/train_dpo.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2025-09-13_13:11:35
+  host      : d5fd97d7a706
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 833239)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[2]:
+  time      : 2025-09-13_13:11:35
+  host      : d5fd97d7a706
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 833250)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-09-13_13:11:35
+  host      : d5fd97d7a706
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 833223)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

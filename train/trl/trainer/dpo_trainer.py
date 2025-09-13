@@ -335,10 +335,12 @@ class DPOTrainer(Trainer):
             if not (self.is_peft_model or self.precompute_ref_log_probs):
                 raise ValueError("No reference model and model is not a Peft model. Try setting `precompute_ref_log_probs=True`")
         else:
-            if self.is_deepspeed_enabled:
-                self.ref_model = self._prepare_deepspeed(self.ref_model)
-            else:
-                self.ref_model = self.accelerator.prepare_model(self.ref_model, evaluation_mode=True)
+            # 参考模型只做评估：冻结 + 不走 DeepSpeed.initialize（否则会给空参数组建优化器而报错）
+            for p in self.ref_model.parameters():
+                p.requires_grad = False
+            self.ref_model.eval()
+            self.ref_model = self.accelerator.prepare_model(self.ref_model, evaluation_mode=True)
+
 
     def _prepare_deepspeed(self, model: PreTrainedModelWrapper):
         # Adapted from accelerate: https://github.com/huggingface/accelerate/blob/739b135f8367becb67ffaada12fe76e3aa60fefd/src/accelerate/accelerator.py#L1473
@@ -636,28 +638,24 @@ class DPOTrainer(Trainer):
                 self.model.set_adapter(self.model_adapter_name or "default")
 
     def compute_reference_log_probs(self, padded_batch: Dict) -> Dict:
-        """Computes log probabilities of the reference model for a single padded batch of a DPO specific dataset."""
-        compte_ref_context_manager = torch.cuda.amp.autocast if self._peft_has_been_casted_to_bf16 else nullcontext
+        def _ref_amp_ctx():
+            if torch.cuda.is_available():
+                return torch.cuda.amp.autocast(dtype=torch.bfloat16)
+            return nullcontext()
 
-        # compute reference logps
-        with torch.no_grad(), compte_ref_context_manager():
+        compte_ref_context_manager = _ref_amp_ctx()
+
+        with torch.no_grad(), compte_ref_context_manager:
             if self.ref_model is None:
                 with self.null_ref_context():
-                    (
-                        reference_chosen_logps,
-                        reference_rejected_logps,
-                        _,
-                        _,
-                    ) = self.concatenated_forward(self.model, padded_batch)
+                    reference_chosen_logps, reference_rejected_logps = \
+                        self.concatenated_forward(self.model, padded_batch)[:2]
             else:
-                (
-                    reference_chosen_logps,
-                    reference_rejected_logps,
-                    _,
-                    _,
-                ) = self.concatenated_forward(self.ref_model, padded_batch)
+                reference_chosen_logps, reference_rejected_logps = \
+                    self.concatenated_forward(self.ref_model, padded_batch)[:2]
 
         return reference_chosen_logps, reference_rejected_logps
+
 
     @staticmethod
     def concatenated_inputs(
@@ -935,12 +933,17 @@ class DPOTrainer(Trainer):
                             self.model, batch
                         )[:2]
                 else:
-                    (
-                        reference_chosen_logps,
-                        reference_rejected_logps,
-                    ) = self.concatenated_forward(
-                        self.ref_model, batch
-                    )[:2]
+                    with torch.no_grad():
+                        if self.ref_model is None:
+                            with self.null_ref_context(), torch.cuda.amp.autocast(dtype=torch.bfloat16):
+                                reference_chosen_logps, reference_rejected_logps = \
+                                    self.concatenated_forward(self.model, batch)[:2]
+                        else:
+                            with torch.cuda.amp.autocast(dtype=torch.bfloat16):
+                                reference_chosen_logps, reference_rejected_logps = \
+                                    self.concatenated_forward(self.ref_model, batch)[:2]
+
+
 
         unscaled_dpo_losses, chosen_rewards, rejected_rewards = self.dpo_loss(
             policy_chosen_logps,
@@ -1182,5 +1185,4 @@ class DPOTrainer(Trainer):
         model on the Hub. Please refer to `~transformers.Trainer.push_to_hub` for more details.
         """
         kwargs = trl_sanitze_kwargs_for_tagging(model=self.model, tag_names=self._tag_names, kwargs=kwargs)
-
         return super().push_to_hub(commit_message=commit_message, blocking=blocking, **kwargs)

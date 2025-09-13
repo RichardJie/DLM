@@ -1,0 +1,134 @@
+[2025-09-13 14:25:29,415] torch.distributed.run: [WARNING] 
+[2025-09-13 14:25:29,415] torch.distributed.run: [WARNING] *****************************************
+[2025-09-13 14:25:29,415] torch.distributed.run: [WARNING] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+[2025-09-13 14:25:29,415] torch.distributed.run: [WARNING] *****************************************
+[2025-09-13 14:25:31,635] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-09-13 14:25:31,655] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-09-13 14:25:31,660] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Please install pyav to use video processing functions.
+Please install pyav to use video processing functions.
+OpenCLIP not installed
+OpenCLIP not installed
+Please install pyav to use video processing functions.
+OpenCLIP not installed
+/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+[2025-09-13 14:25:34,743] [INFO] [comm.py:637:init_distributed] cdb=None
+[2025-09-13 14:25:34,745] [INFO] [comm.py:637:init_distributed] cdb=None
+[2025-09-13 14:25:34,745] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2025-09-13 14:25:34,746] [INFO] [comm.py:637:init_distributed] cdb=None
+You are using a model of type llada to instantiate a model of type llava_llada. This is not supported for all configurations of models and can yield errors.
+You are using a model of type llada to instantiate a model of type llava_llada. This is not supported for all configurations of models and can yield errors.
+You are using a model of type llada to instantiate a model of type llava_llada. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:  17%|█▋        | 1/6 [00:01<00:09,  1.85s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:01<00:09,  1.88s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:01<00:09,  1.95s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:04<00:08,  2.20s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:04<00:08,  2.24s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:04<00:09,  2.31s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:06<00:06,  2.31s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:06<00:07,  2.34s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:07<00:07,  2.41s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:09<00:04,  2.34s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:09<00:04,  2.37s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:09<00:04,  2.45s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:11<00:02,  2.32s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:11<00:02,  2.36s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:11<00:02,  2.44s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:13<00:00,  2.08s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:13<00:00,  2.17s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:13<00:00,  2.12s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:13<00:00,  2.21s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:13<00:00,  2.19s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:13<00:00,  2.28s/it]
+Rank 0:  Loaded PEFT adapter from /hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/exp/llada_v_finetune (trainable).
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Rank 0:  Prompt version: llava_llada
+Rank 0:  Loading vision tower: /hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/models/siglip2-so400m-patch14-384
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Rank 0:  Total parameters: ~8518.72 MB)
+Rank 0:  Trainable parameters: ~105.39 MB)
+Rank 0:  Loading vision tower: /hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/models/siglip2-so400m-patch14-384
+Rank 0:  Loading /hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/dataset/coco2017/llava_multi/coco_val2017_DPO_pairs_small_focus.jsonl
+Rank 0:  Loaded 18059 samples from /hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/dataset/coco2017/llava_multi/coco_val2017_DPO_pairs_small_focus.jsonl
+Rank 0:  Formatting inputs...Skip in lazy mode
+/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/trl/trainer/dpo_trainer.py:239: UserWarning: `max_prompt_length` is not set in the DPOTrainer's init it will default to `128` by default, but you should do it yourself in the future.
+  warnings.warn(
+Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/trl/trainer/dpo_trainer.py:239: UserWarning: `max_prompt_length` is not set in the DPOTrainer's init it will default to `128` by default, but you should do it yourself in the future.
+  warnings.warn(
+/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/trl/trainer/dpo_trainer.py:239: UserWarning: `max_prompt_length` is not set in the DPOTrainer's init it will default to `128` by default, but you should do it yourself in the future.
+  warnings.warn(
+Train dataset reference log probs:   0%|          | 0/1505 [00:00<?, ?it/s]Train dataset reference log probs:   0%|          | 0/1505 [00:02<?, ?it/s]
+Traceback (most recent call last):
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_dpo.py", line 1902, in <module>
+    train()
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_dpo.py", line 1880, in train
+    trainer.train()
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/transformers/trainer.py", line 1859, in train
+    return inner_training_loop(
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/transformers/trainer.py", line 1888, in _inner_training_loop
+    train_dataloader = self.get_train_dataloader()
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/trl/trainer/dpo_trainer.py", line 394, in get_train_dataloader
+    reference_chosen_logp, reference_rejected_logp = self.compute_reference_log_probs(padded_batch)
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/trl/trainer/dpo_trainer.py", line 652, in compute_reference_log_probs
+    with torch.no_grad(), compte_ref_context_manager():
+TypeError: __call__() missing 1 required positional argument: 'func'
+Traceback (most recent call last):
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_dpo.py", line 1902, in <module>
+    train()
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_dpo.py", line 1880, in train
+    trainer.train()
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/transformers/trainer.py", line 1859, in train
+    return inner_training_loop(
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/transformers/trainer.py", line 1888, in _inner_training_loop
+    train_dataloader = self.get_train_dataloader()
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/trl/trainer/dpo_trainer.py", line 394, in get_train_dataloader
+    reference_chosen_logp, reference_rejected_logp = self.compute_reference_log_probs(padded_batch)
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/trl/trainer/dpo_trainer.py", line 652, in compute_reference_log_probs
+    with torch.no_grad(), compte_ref_context_manager():
+TypeError: __call__() missing 1 required positional argument: 'func'
+Traceback (most recent call last):
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_dpo.py", line 1902, in <module>
+    train()
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_dpo.py", line 1880, in train
+    trainer.train()
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/transformers/trainer.py", line 1859, in train
+    return inner_training_loop(
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/transformers/trainer.py", line 1888, in _inner_training_loop
+    train_dataloader = self.get_train_dataloader()
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/trl/trainer/dpo_trainer.py", line 394, in get_train_dataloader
+    reference_chosen_logp, reference_rejected_logp = self.compute_reference_log_probs(padded_batch)
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/trl/trainer/dpo_trainer.py", line 652, in compute_reference_log_probs
+    with torch.no_grad(), compte_ref_context_manager():
+TypeError: __call__() missing 1 required positional argument: 'func'
+[2025-09-13 14:28:59,630] torch.distributed.elastic.multiprocessing.api: [ERROR] failed (exitcode: 1) local_rank: 0 (pid: 1399867) of binary: /hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/bin/python
+Traceback (most recent call last):
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/bin/torchrun", line 33, in <module>
+    sys.exit(load_entry_point('torch==2.1.2', 'console_scripts', 'torchrun')())
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 346, in wrapper
+    return f(*args, **kwargs)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/run.py", line 806, in main
+    run(args)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/run.py", line 797, in run
+    elastic_launch(
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+llava/train/train_dpo.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2025-09-13_14:28:59
+  host      : d5fd97d7a706
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 1399868)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[2]:
+  time      : 2025-09-13_14:28:59
+  host      : d5fd97d7a706
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 1399869)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-09-13_14:28:59
+  host      : d5fd97d7a706
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 1399867)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

@@ -34,16 +34,37 @@ import torch
 
 import transformers
 import tokenizers
+# 在现有 imports 附近加上（按你仓库实际路径为准）
+from llava.model.language_model.llava_llada import LlavaLLaDAModelLM
 
 from llava.constants import IGNORE_INDEX, DEFAULT_IMAGE_TOKEN, DEFAULT_IM_START_TOKEN, DEFAULT_IM_END_TOKEN, IMAGE_TOKEN_INDEX
 from torch.utils.data import Dataset
 from llava.train.llava_trainer import LLaVADPOTrainer
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../")))
+
 from data_processing.utils import load_jsonl, load_json
 from llava import conversation as conversation_lib
 from llava.model import *
-from llava.model.language_model.llava_qwen import LlavaQwenConfig
-from llava.model.language_model.llava_llama import LlavaConfig
-from llava.model.language_model.llava_mistral import LlavaMistralConfig
+try:
+    from llava.model.language_model.llava_qwen import LlavaQwenConfig  # optional
+except Exception:
+    LlavaQwenConfig = None
+try:
+    from llava.model.language_model.llava_llama import LlavaConfig as LlavaLlamaConfig  # optional
+except Exception:
+    LlavaLlamaConfig = None
+try:
+    from llava.model.language_model.llava_mistral import LlavaMistralConfig  # optional
+except Exception:
+    LlavaMistralConfig = None
+
+# 你的仓库是 LLADA 系列，配置类在 configuration_llada.py
+try:
+    from llava.model.language_model.configuration_llada import LlavaConfig as LladaConfig
+except Exception:
+    LladaConfig = None
 from llava.mm_utils import process_highres_image, process_anyres_image, process_highres_image_crop_split, tokenizer_image_token
 from llava.utils import rank0_print
 from transformers import AutoConfig
@@ -1321,10 +1342,70 @@ def get_model(model_args, training_args, bnb_model_from_pretrained_args):
     customized_kwargs.update(bnb_model_from_pretrained_args)
     overwrite_config = {}
     cfg_pretrained = None
-    if "qwen" in model_args.model_name_or_path.lower():
+
+    # ---------- LLADA: 直接构建并返回 ----------
+    if "llada" in model_args.model_name_or_path.lower():
+        policy_cls = LlavaLLaDAModelLM
+        model = policy_cls.from_pretrained(
+            model_args.model_name_or_path,
+            cache_dir=training_args.cache_dir,
+            attn_implementation=training_args.attn_implementation,
+            torch_dtype=(torch.bfloat16 if training_args.bf16 else None),
+            low_cpu_mem_usage=False,
+            **customized_kwargs,
+        )
+
+        # DPO 需要 reference model；满足任一条件就建（你开了 precompute_ref_log_probs=True）
+        ref_model = None
+        if training_args.precompute_ref_log_probs or getattr(training_args, "gamma", 0.0) != 0.0:
+            if "zero3" in str(training_args.deepspeed):
+                # zero3 下别 deepcopy，重新 from_pretrained
+                ref_model = policy_cls.from_pretrained(
+                    model_args.model_name_or_path,
+                    cache_dir=training_args.cache_dir,
+                    attn_implementation=training_args.attn_implementation,
+                    torch_dtype=(torch.bfloat16 if training_args.bf16 else None),
+                    low_cpu_mem_usage=False,
+                    **customized_kwargs,
+                )
+            else:
+                ref_model = copy.deepcopy(model)
+
+            for p in ref_model.parameters():
+                p.requires_grad_(False)
+            ref_model.eval()
+
+        return model, ref_model
+    elif "qwen" in model_args.model_name_or_path.lower():
         cfg_pretrained = LlavaQwenConfig.from_pretrained(model_args.model_name_or_path)
     elif "mistral" in model_args.model_name_or_path.lower() or "zephyr" in model_args.model_name_or_path.lower():
         cfg_pretrained = LlavaMistralConfig.from_pretrained(model_args.model_name_or_path)
+            # --------------- 新增：LLADA 分支 ---------------
+    elif "llada" in model_args.model_name_or_path.lower():
+        # 你的仓库里，类名来自 llava.model.language_model.llava_llada
+        # 已由 "from llava.model import *" 导入，通常叫：LlavaLladaForCausalLM
+        model = LlavaLLaDAModelLM.from_pretrained(
+            model_args.model_name_or_path,
+            cache_dir=training_args.cache_dir,
+            attn_implementation=training_args.attn_implementation,
+            torch_dtype=(torch.bfloat16 if training_args.bf16 else None),
+            low_cpu_mem_usage=False,
+            **customized_kwargs,
+        )
+        
+
+        # 如使用 zero3，可按其他分支一样初始化一个 frozen reference model
+        if "zero3" in training_args.deepspeed:
+            rank0_print("#### Initialize reference model (LLADA) #####")
+            ref_model = LlavaLladaForCausalLM.from_pretrained(
+                model_args.model_name_or_path,
+                cache_dir=training_args.cache_dir,
+                attn_implementation=training_args.attn_implementation,
+                torch_dtype=(torch.bfloat16 if training_args.bf16 else None),
+                low_cpu_mem_usage=False,
+                **customized_kwargs,
+            )
+
     elif (
         "wizardlm-2" in model_args.model_name_or_path.lower()
         or "vicuna" in model_args.model_name_or_path.lower()
@@ -1546,23 +1627,62 @@ def train(attn_implementation=None):
                 ref_model.get_input_embeddings().register_forward_hook(make_inputs_require_grad)
 
     if training_args.lora_enable:
-        from peft import LoraConfig, get_peft_model
+        from peft import LoraConfig, get_peft_model, PeftModel
 
-        lora_config = LoraConfig(
-            r=training_args.lora_r,
-            lora_alpha=training_args.lora_alpha,
-            target_modules=find_all_linear_names(model),
-            lora_dropout=training_args.lora_dropout,
-            bias=training_args.lora_bias,
-            task_type="CAUSAL_LM",
-        )
-        if training_args.bits == 16:
-            if training_args.bf16:
-                model.to(torch.bfloat16)
-            if training_args.fp16:
-                model.to(torch.float16)
-        rank0_print("Adding LoRA adapters...")
-        model = get_peft_model(model, lora_config)
+        have_adapter = False
+        lw = getattr(training_args, "lora_weight_path", "")
+
+        if lw:
+            try:
+                # 标准 PEFT 适配器优先：目录含 adapter_config.json/adapter_model.*
+                model = PeftModel.from_pretrained(
+                    model, lw, is_trainable=True
+                )
+                rank0_print(f"Loaded PEFT adapter from {lw} (trainable).")
+                have_adapter = True
+            except Exception as e:
+                rank0_print(f"[WARN] PeftModel.from_pretrained failed on {lw}: {e}. Will try raw LoRA init.")
+
+        if not have_adapter:
+            # 正常新建一套 LoRA
+            target_modules = find_all_linear_names(model)  # 你的 helper，已排除了 mm_projector/vision_tower
+            lora_config = LoraConfig(
+                r=training_args.lora_r,
+                lora_alpha=training_args.lora_alpha,
+                target_modules=target_modules,
+                lora_dropout=training_args.lora_dropout,
+                bias=training_args.lora_bias,
+                task_type="CAUSAL_LM",
+            )
+            if training_args.bits == 16:
+                if training_args.bf16:
+                    model.to(torch.bfloat16)
+                if training_args.fp16:
+                    model.to(torch.float16)
+            rank0_print(f"Adding LoRA adapters on modules: {target_modules}")
+            model = get_peft_model(model, lora_config)
+
+            # 兼容你之前“直接给二进制”的场景（不是标准 peft 目录）
+            if lw and os.path.exists(lw):
+                try:
+                    cand = [
+                        lw,
+                        os.path.join(lw, "adapter_model.safetensors"),
+                        os.path.join(lw, "adapter_model.bin"),
+                    ]
+                    for p in cand:
+                        if os.path.isfile(p):
+                            if p.endswith(".safetensors"):
+                                from safetensors.torch import load_file as safe_load
+                                sd = safe_load(p)
+                            else:
+                                sd = torch.load(p, map_location="cpu")
+                            missing, unexpected = model.load_state_dict(sd, strict=False)
+                            rank0_print(f"Loaded raw LoRA weights from {p}. missing={len(missing)}, unexpected={len(unexpected)}")
+                            break
+                except Exception as e:
+                    rank0_print(f"[WARN] Failed to load raw LoRA weights from {lw}: {e}")
+
 
     if "mpt" in model_args.model_name_or_path:
         tokenizer = transformers.AutoTokenizer.from_pretrained(model_args.model_name_or_path, cache_dir=training_args.cache_dir, model_max_length=training_args.model_max_length, padding_side="right")

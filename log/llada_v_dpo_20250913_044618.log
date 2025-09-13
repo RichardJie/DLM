@@ -1,0 +1,8 @@
+[2025-09-13 04:46:30,636] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Please install pyav to use video processing functions.
+/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+OpenCLIP not installed
+[2025-09-13 04:46:41,120] [INFO] [comm.py:637:init_distributed] cdb=None
+[2025-09-13 04:46:41,121] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+You are using a model of type llada to instantiate a model of type llava_llada. This is not supported for all configurations of models and can yield errors.

@@ -95,7 +95,8 @@ class LlavaMetaModel:
 
         
         if not hasattr(self.config, 'add_faster_video'):
-            if model_args.add_faster_video:
+            if getattr(model_args, "add_faster_video", False):
+
                 embed_std = 1 / torch.sqrt(torch.tensor(self.config.hidden_size, dtype=self.dtype))
                 self.faster_token = nn.Parameter(
                     torch.randn(self.config.hidden_size, dtype=self.dtype) * embed_std

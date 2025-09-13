@@ -1,0 +1,102 @@
+[2025-09-13 12:13:59,675] torch.distributed.run: [WARNING] 
+[2025-09-13 12:13:59,675] torch.distributed.run: [WARNING] *****************************************
+[2025-09-13 12:13:59,675] torch.distributed.run: [WARNING] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+[2025-09-13 12:13:59,675] torch.distributed.run: [WARNING] *****************************************
+[2025-09-13 12:14:01,872] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-09-13 12:14:01,876] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-09-13 12:14:01,881] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Please install pyav to use video processing functions.
+Please install pyav to use video processing functions.
+Please install pyav to use video processing functions.
+OpenCLIP not installed
+OpenCLIP not installed
+OpenCLIP not installed
+/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+[2025-09-13 12:14:06,486] [INFO] [comm.py:637:init_distributed] cdb=None
+[2025-09-13 12:14:06,486] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2025-09-13 12:14:06,487] [INFO] [comm.py:637:init_distributed] cdb=None
+[2025-09-13 12:14:06,487] [INFO] [comm.py:637:init_distributed] cdb=None
+You are using a model of type llada to instantiate a model of type llava_llada. This is not supported for all configurations of models and can yield errors.
+You are using a model of type llada to instantiate a model of type llava_llada. This is not supported for all configurations of models and can yield errors.
+You are using a model of type llada to instantiate a model of type llava_llada. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:  17%|█▋        | 1/6 [00:01<00:08,  1.62s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:01<00:07,  1.59s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:01<00:07,  1.59s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:03<00:07,  1.92s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:03<00:07,  1.90s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:03<00:07,  1.90s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:05<00:06,  2.04s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:05<00:06,  2.02s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:05<00:06,  2.01s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:08<00:04,  2.07s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:08<00:04,  2.07s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:08<00:04,  2.08s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:10<00:02,  2.10s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:10<00:02,  2.10s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:10<00:02,  2.10s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:11<00:00,  1.90s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:11<00:00,  1.90s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:11<00:00,  1.94s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:11<00:00,  1.94s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:11<00:00,  1.90s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:11<00:00,  1.96s/it]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Rank 0:  Loaded PEFT adapter from /hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/exp/llada_v_finetune (trainable).
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Rank 0:  Prompt version: llava_llada
+Rank 0:  Loading vision tower: /hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/models/siglip2-so400m-patch14-384
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Traceback (most recent call last):
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_dpo.py", line 1902, in <module>
+    train()
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_dpo.py", line 1721, in train
+    model.get_model().initialize_vision_modules(model_args=model_args, fsdp=training_args.fsdp)
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/model/llava_arch.py", line 98, in initialize_vision_modules
+    if model_args.add_faster_video:
+AttributeError: 'ModelArguments' object has no attribute 'add_faster_video'
+Traceback (most recent call last):
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_dpo.py", line 1902, in <module>
+    Traceback (most recent call last):
+train()
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_dpo.py", line 1902, in <module>
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_dpo.py", line 1721, in train
+    model.get_model().initialize_vision_modules(model_args=model_args, fsdp=training_args.fsdp)
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/model/llava_arch.py", line 98, in initialize_vision_modules
+    if model_args.add_faster_video:
+AttributeError: 'ModelArguments' object has no attribute 'add_faster_video'
+    train()
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_dpo.py", line 1721, in train
+    model.get_model().initialize_vision_modules(model_args=model_args, fsdp=training_args.fsdp)
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/model/llava_arch.py", line 98, in initialize_vision_modules
+    if model_args.add_faster_video:
+AttributeError: 'ModelArguments' object has no attribute 'add_faster_video'
+[2025-09-13 12:15:49,812] torch.distributed.elastic.multiprocessing.api: [ERROR] failed (exitcode: 1) local_rank: 0 (pid: 451969) of binary: /hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/bin/python
+Traceback (most recent call last):
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/bin/torchrun", line 33, in <module>
+    sys.exit(load_entry_point('torch==2.1.2', 'console_scripts', 'torchrun')())
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 346, in wrapper
+    return f(*args, **kwargs)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/run.py", line 806, in main
+    run(args)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/run.py", line 797, in run
+    elastic_launch(
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+llava/train/train_dpo.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2025-09-13_12:15:49
+  host      : d5fd97d7a706
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 451970)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[2]:
+  time      : 2025-09-13_12:15:49
+  host      : d5fd97d7a706
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 451971)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-09-13_12:15:49
+  host      : d5fd97d7a706
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 451969)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

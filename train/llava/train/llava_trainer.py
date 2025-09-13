@@ -517,6 +517,50 @@ class LLaVATrainer(Trainer):
 
 
 class LLaVADPOTrainer(DPOTrainer):
+    # 放到 LLaVADPOTrainer 类里（或你运行的 DPO Trainer 类里）
+    def save_my_lora_ckpt(self, output_dir, args, unwrapped_model):
+        """
+        Save LoRA adapter weights only. Works with ZeRO-3/FSDP via accelerate.get_state_dict.
+        Fallback to full model if not a PEFT model.
+        """
+        from peft import PeftModel, get_peft_model_state_dict
+        import os
+
+        # 先拿到真正的模型（去掉 deepspeed/fsdp 外壳）
+        model = unwrapped_model
+        if hasattr(model, "module"):
+            model = model.module
+
+        # 只保存 LoRA adapter
+        if isinstance(model, PeftModel):
+            # 聚合分片权重（ZeRO-3 / FSDP）
+            base_for_state = model
+            state = self.accelerator.get_state_dict(base_for_state)
+            peft_state = get_peft_model_state_dict(base_for_state, state_dict=state)
+
+            # 主进程落盘
+            if self.accelerator.is_main_process:
+                os.makedirs(output_dir, exist_ok=True)
+                # 保存 adapter（不需要把 base 模型全量权重写盘）
+                model.save_pretrained(output_dir, state_dict=peft_state, safe_serialization=False)
+                # 同时把 tokenizer 也存一下（可选）
+                try:
+                    self.tokenizer.save_pretrained(output_dir)
+                except Exception:
+                    pass
+            self.accelerator.wait_for_everyone()
+        else:
+            # 不是 PEFT/LoRA，就走普通保存（聚合之后）
+            state = self.accelerator.get_state_dict(unwrapped_model)
+            if self.accelerator.is_main_process:
+                os.makedirs(output_dir, exist_ok=True)
+                unwrapped_model.save_pretrained(output_dir, state_dict=state, safe_serialization=False)
+                try:
+                    self.tokenizer.save_pretrained(output_dir)
+                except Exception:
+                    pass
+            self.accelerator.wait_for_everyone()
+
     def _get_train_sampler(self) -> Optional[torch.utils.data.Sampler]:
         if self.train_dataset is None or not has_length(self.train_dataset):
             return None

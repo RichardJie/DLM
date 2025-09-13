@@ -1,0 +1,96 @@
+[2025-09-13 11:49:37,569] torch.distributed.run: [WARNING] 
+[2025-09-13 11:49:37,569] torch.distributed.run: [WARNING] *****************************************
+[2025-09-13 11:49:37,569] torch.distributed.run: [WARNING] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+[2025-09-13 11:49:37,569] torch.distributed.run: [WARNING] *****************************************
+[2025-09-13 11:49:39,959] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-09-13 11:49:39,960] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-09-13 11:49:39,971] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Please install pyav to use video processing functions.
+Please install pyav to use video processing functions.
+Please install pyav to use video processing functions.
+/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+OpenCLIP not installed
+OpenCLIP not installed
+OpenCLIP not installed
+[2025-09-13 11:49:46,575] [INFO] [comm.py:637:init_distributed] cdb=None
+[2025-09-13 11:49:46,576] [INFO] [comm.py:637:init_distributed] cdb=None
+[2025-09-13 11:49:46,577] [INFO] [comm.py:637:init_distributed] cdb=None
+[2025-09-13 11:49:46,577] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+You are using a model of type llada to instantiate a model of type llava_llada. This is not supported for all configurations of models and can yield errors.
+You are using a model of type llada to instantiate a model of type llava_llada. This is not supported for all configurations of models and can yield errors.
+You are using a model of type llada to instantiate a model of type llava_llada. This is not supported for all configurations of models and can yield errors.
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:  17%|█▋        | 1/6 [00:03<00:19,  3.93s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:03<00:19,  4.00s/it]Loading checkpoint shards:  17%|█▋        | 1/6 [00:04<00:20,  4.17s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:10<00:20,  5.25s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:10<00:20,  5.23s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:10<00:21,  5.32s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:16<00:17,  5.69s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:16<00:17,  5.73s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:16<00:17,  5.69s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:22<00:11,  5.89s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:22<00:11,  5.86s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:22<00:11,  5.87s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:28<00:05,  5.92s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:28<00:05,  5.94s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:28<00:05,  5.92s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:33<00:00,  5.44s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:33<00:00,  5.52s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:32<00:00,  5.43s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:32<00:00,  5.49s/it]
+Loading checkpoint shards: 100%|██████████| 6/6 [00:32<00:00,  5.43s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:32<00:00,  5.50s/it]
+Traceback (most recent call last):
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_dpo.py", line 1857, in <module>
+Traceback (most recent call last):
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_dpo.py", line 1857, in <module>
+    train()
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_dpo.py", line 1566, in train
+    train()
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_dpo.py", line 1566, in train
+    model, ref_model = get_model(model_args, training_args, bnb_model_from_pretrained_args)
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_dpo.py", line 1521, in get_model
+    model, ref_model = get_model(model_args, training_args, bnb_model_from_pretrained_args)
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_dpo.py", line 1521, in get_model
+Traceback (most recent call last):
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_dpo.py", line 1857, in <module>
+    raise ValueError(f"Unknown model class {model_args}")
+ValueError: Unknown model class ModelArguments(model_name_or_path='/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/models/LLaDA-8B-Instruct-HF', model_class_name=None, mm_tunable_parts=None, version='llava_llada', freeze_backbone=True, tune_mm_mlp_adapter=False, tune_mm_vision_resampler=False, vision_tower='/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/models/siglip2-so400m-patch14-384', vision_tower_pretrained=None, unfreeze_mm_vision_tower=False, unfreeze_language_model=False, mm_vision_select_layer=-2, pretrain_mm_mlp_adapter=None, mm_projector_type='mlp2x_gelu', mm_use_im_start_end=False, mm_use_im_patch_token=True, mm_patch_merge_type='spatial_unpad', mm_vision_select_feature='patch', mm_resampler_type=None, mm_mask_drop_mode='fixed', mm_mask_drop_skip_percentage=0.0, mm_mask_drop_ratio=0.25, mm_mask_drop_ratio_upper=None, mm_mask_drop_ratio_lower=None, mm_spatial_pool_stride=None, mm_spatial_pool_mode='average', mm_spatial_pool_out_channels=None, mm_perceiver_depth=3, mm_perceiver_latents=32, mm_perceiver_ff_mult=4, mm_perceiver_pretrained=None, mm_qformer_depth=3, mm_qformer_latents=32, mm_qformer_pretrained=None, rope_scaling_factor=None, rope_scaling_type=None, s2=False, s2_scales='336,672,1008')
+    raise ValueError(f"Unknown model class {model_args}")
+ValueError: Unknown model class ModelArguments(model_name_or_path='/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/models/LLaDA-8B-Instruct-HF', model_class_name=None, mm_tunable_parts=None, version='llava_llada', freeze_backbone=True, tune_mm_mlp_adapter=False, tune_mm_vision_resampler=False, vision_tower='/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/models/siglip2-so400m-patch14-384', vision_tower_pretrained=None, unfreeze_mm_vision_tower=False, unfreeze_language_model=False, mm_vision_select_layer=-2, pretrain_mm_mlp_adapter=None, mm_projector_type='mlp2x_gelu', mm_use_im_start_end=False, mm_use_im_patch_token=True, mm_patch_merge_type='spatial_unpad', mm_vision_select_feature='patch', mm_resampler_type=None, mm_mask_drop_mode='fixed', mm_mask_drop_skip_percentage=0.0, mm_mask_drop_ratio=0.25, mm_mask_drop_ratio_upper=None, mm_mask_drop_ratio_lower=None, mm_spatial_pool_stride=None, mm_spatial_pool_mode='average', mm_spatial_pool_out_channels=None, mm_perceiver_depth=3, mm_perceiver_latents=32, mm_perceiver_ff_mult=4, mm_perceiver_pretrained=None, mm_qformer_depth=3, mm_qformer_latents=32, mm_qformer_pretrained=None, rope_scaling_factor=None, rope_scaling_type=None, s2=False, s2_scales='336,672,1008')
+    train()
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_dpo.py", line 1566, in train
+    model, ref_model = get_model(model_args, training_args, bnb_model_from_pretrained_args)
+  File "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/llava/train/train_dpo.py", line 1521, in get_model
+    raise ValueError(f"Unknown model class {model_args}")
+ValueError: Unknown model class ModelArguments(model_name_or_path='/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/models/LLaDA-8B-Instruct-HF', model_class_name=None, mm_tunable_parts=None, version='llava_llada', freeze_backbone=True, tune_mm_mlp_adapter=False, tune_mm_vision_resampler=False, vision_tower='/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/models/siglip2-so400m-patch14-384', vision_tower_pretrained=None, unfreeze_mm_vision_tower=False, unfreeze_language_model=False, mm_vision_select_layer=-2, pretrain_mm_mlp_adapter=None, mm_projector_type='mlp2x_gelu', mm_use_im_start_end=False, mm_use_im_patch_token=True, mm_patch_merge_type='spatial_unpad', mm_vision_select_feature='patch', mm_resampler_type=None, mm_mask_drop_mode='fixed', mm_mask_drop_skip_percentage=0.0, mm_mask_drop_ratio=0.25, mm_mask_drop_ratio_upper=None, mm_mask_drop_ratio_lower=None, mm_spatial_pool_stride=None, mm_spatial_pool_mode='average', mm_spatial_pool_out_channels=None, mm_perceiver_depth=3, mm_perceiver_latents=32, mm_perceiver_ff_mult=4, mm_perceiver_pretrained=None, mm_qformer_depth=3, mm_qformer_latents=32, mm_qformer_pretrained=None, rope_scaling_factor=None, rope_scaling_type=None, s2=False, s2_scales='336,672,1008')
+[2025-09-13 11:50:22,663] torch.distributed.elastic.multiprocessing.api: [ERROR] failed (exitcode: 1) local_rank: 0 (pid: 260402) of binary: /hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/bin/python
+Traceback (most recent call last):
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/bin/torchrun", line 33, in <module>
+    sys.exit(load_entry_point('torch==2.1.2', 'console_scripts', 'torchrun')())
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 346, in wrapper
+    return f(*args, **kwargs)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/run.py", line 806, in main
+    run(args)
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/run.py", line 797, in run
+    elastic_launch(
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/hpc2hdd/home/yuxuanzhao/miniconda3/envs/dllm/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+llava/train/train_dpo.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2025-09-13_11:50:22
+  host      : d5fd97d7a706
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 260412)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[2]:
+  time      : 2025-09-13_11:50:22
+  host      : d5fd97d7a706
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 260420)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-09-13_11:50:22
+  host      : d5fd97d7a706
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 260402)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
