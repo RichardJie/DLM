@@ -78,10 +78,16 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
                 tokenizer = AutoTokenizer.from_pretrained(model_base, use_fast=False)
                 model = LlavaGemmaForCausalLM.from_pretrained(model_base, low_cpu_mem_usage=True, config=lora_cfg_pretrained, attn_implementation=attn_implementation, **kwargs)
             elif "llada" in model_name.lower():
-                # ==== 新增：LoRA + LLaDA-V 的加载路径 ====
-                # 你的基座是 LLaDA-V，自然应该走 LlavaLLaDA 系列的类与 config
                 from llava.model.language_model.llava_llada import LlavaLLaDAConfig
                 lora_cfg_pretrained = LlavaLLaDAConfig.from_pretrained(model_path)
+
+                # ✅ 关键：打开延迟加载视觉塔（但千万别改 mm_vision_tower）
+                lora_cfg_pretrained.delay_load = True
+
+                if overwrite_config is not None:
+                    for k, v in overwrite_config.items():
+                        setattr(lora_cfg_pretrained, k, v)
+
                 tokenizer = AutoTokenizer.from_pretrained(model_base, use_fast=False)
                 model = LlavaLLaDAModelLM.from_pretrained(
                     model_base,
@@ -90,6 +96,9 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
                     attn_implementation=attn_implementation,
                     **kwargs,
                 )
+
+
+
             else:
                 from llava.model.language_model.llava_llama import LlavaConfig
 
@@ -117,7 +126,12 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
             non_lora_trainables = {(k[11:] if k.startswith("base_model.") else k): v for k, v in non_lora_trainables.items()}
             if any(k.startswith("model.model.") for k in non_lora_trainables):
                 non_lora_trainables = {(k[6:] if k.startswith("model.") else k): v for k, v in non_lora_trainables.items()}
-            model.load_state_dict(non_lora_trainables, strict=False)
+            non_lora_trainables = {
+                    k: v for k, v in non_lora_trainables.items()
+                    if not k.startswith("model.vision_tower.")   # 你日志里就是这类前缀
+                }
+            model.load_state_dict(non_lora_trainables, strict=False, assign=True)
+
 
             from peft import PeftModel
 
@@ -126,6 +140,18 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
             rank0_print("Merging LoRA weights...")
             model = model.merge_and_unload()
             rank0_print("Model is loaded...")
+            try:
+                mm_proj = model.get_model().mm_projector
+                # 尝试放到语言模型 embedding 同一设备；失败就放到 cuda:0
+                try:
+                    dev = next(model.model.embed_tokens.parameters()).device
+                except Exception:
+                    dev = torch.device("cuda", 0) if torch.cuda.is_available() else torch.device("cpu")
+                mm_proj.to(dev)
+                rank0_print(f"mm_projector moved to: {dev}")
+            except Exception as e:
+                rank0_print(f"[warn] skip moving mm_projector: {e}")
+
         elif model_base is not None:  # this may be mm projector only, loading projector with preset language mdoel
             rank0_print(f"Loading LLaVA from base model {model_base}...")
             if "mixtral" in model_name.lower():

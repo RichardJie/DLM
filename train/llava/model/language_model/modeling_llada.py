@@ -18,7 +18,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 """PyTorch LLaDA model."""
-
+import os
+import torch.nn as nn
 import math
 import warnings
 from typing import List, Optional, Tuple, Union
@@ -803,15 +804,20 @@ class LLaDAPreTrainedModel(PreTrainedModel):
     _supports_cache_class = True
 
     def _init_weights(self, module):
-        std = self.config.initializer_range
+        # 👉 关键：当我们是从预训练权重加载（而不是从头训）时，跳过大规模随机初始化
+        if getattr(self.config, "delay_load", False) or os.environ.get("LLAVA_SKIP_INIT", "0") == "1":
+            return
+
+        # --------- 原本的初始化逻辑保留在下面（用于真正从头训练时）---------
         if isinstance(module, nn.Linear):
+            # 你原来这段 normal_ / zeros_ 的逻辑
+            std = getattr(self.config, "initializer_range", 0.02)
             module.weight.data.normal_(mean=0.0, std=std)
             if module.bias is not None:
                 module.bias.data.zero_()
         elif isinstance(module, nn.Embedding):
+            std = getattr(self.config, "initializer_range", 0.02)
             module.weight.data.normal_(mean=0.0, std=std)
-            if module.padding_idx is not None:
-                module.weight.data[module.padding_idx].zero_()
 
     def _setup_cache(self, cache_cls, max_batch_size, max_cache_len: Optional[int] = None):
         if self.config._attn_implementation == "flash_attention_2" and cache_cls == StaticCache:

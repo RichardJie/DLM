@@ -4,8 +4,12 @@
 # export NCCL_DEBUG=WARN
 # export NCCL_DEBUG_SUBSYS=ALL
 
-num_node=$1
-gpu_num=$2
+export CUDA_HOME=/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/cuda_12_1
+export PATH="$CUDA_HOME/bin:$PATH"
+export CUDACXX="$CUDA_HOME/bin/nvcc"
+
+num_node=1
+gpu_num=2
 
 MASTER_ADDR=${MASTER_ADDR:-"127.0.0.1"}
 MASTER_PORT=${MASTER_PORT:-"29199"}
@@ -17,7 +21,7 @@ echo "node_rank ${RANK}"
 echo "gpu_num ${gpu_num}"
 echo "num_node ${num_node}"
 
-LLM_VERSION="/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/models/LLaDA-V"
+LLM_VERSION="/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/models/LLaDA-8B-Instruct-HF"
 VISION_MODEL_VERSION="/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/models/siglip2-so400m-patch14-384"
 
 PROMPT_VERSION="llava_llada"
@@ -42,7 +46,7 @@ echo "Log file: $LOG_FILE"
 #   --master_addr=${MASTER_ADDR} \
 #   --master_port=${MASTER_PORT} \
 #   --node_rank=${RANK} \
-PYTHONUNBUFFERED=1 CUDA_VISIBLE_DEVICES=0,1,2 stdbuf -oL -eL torchrun --nproc_per_node=${gpu_num} --nnodes=${num_node} \
+PYTHONUNBUFFERED=1 CUDA_VISIBLE_DEVICES=1,3 stdbuf -oL -eL torchrun --nproc_per_node=${gpu_num} --nnodes=${num_node} \
 --master_addr=${MASTER_ADDR} --master_port ${MASTER_PORT} --node_rank=${RANK} \
   llava/train/train_mem.py \
   --deepspeed scripts/zero2.json \
@@ -62,7 +66,7 @@ PYTHONUNBUFFERED=1 CUDA_VISIBLE_DEVICES=0,1,2 stdbuf -oL -eL torchrun --nproc_pe
   --bf16 True \
   --run_name $BASE_RUN_NAME \
   --output_dir "exp/$BASE_RUN_NAME" \
-  --num_train_epochs 2 \
+  --num_train_epochs 1 \
   --per_device_train_batch_size 4 \
   --gradient_accumulation_steps 4 \
   --save_strategy "epoch" \

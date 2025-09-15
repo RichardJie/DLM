@@ -11,7 +11,7 @@ MASTER_ADDR=${MASTER_ADDR:-"127.0.0.1"}
 MASTER_PORT=${MASTER_PORT:-"29209"}
 RANK=${RANK:-"0"}
 
-LLM_VERSION="/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/models/LLaDA-8B-Instruct-HF"
+LLM_VERSION="/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/models/LLaDA-V"
 VISION_MODEL_VERSION="/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/models/siglip2-so400m-patch14-384"
 
 DATA_ROOT="/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/dataset"
@@ -42,9 +42,9 @@ PYTHONUNBUFFERED=1 CUDA_VISIBLE_DEVICES=0,1,2 stdbuf -oL -eL torchrun \
   --bf16 True \
   --run_name ${BASE_RUN_NAME} \
   --output_dir "exp/${BASE_RUN_NAME}" \
-  --num_train_epochs 2 \
-  --per_device_train_batch_size 4 \
-  --gradient_accumulation_steps 4 \
+  --num_train_epochs 1 \
+  --per_device_train_batch_size 1 \
+  --gradient_accumulation_steps 8 \
   --save_strategy "epoch" \
   --save_total_limit 1 \
   --learning_rate 5e-6 \

@@ -193,7 +193,15 @@ class LlavaMetaForCausalLM(ABC):
     def encode_images(self, images):
         image_features = self.get_model().get_vision_tower()(images)
         # image_features = self.get_model().vision_resampler(image_features, images=images)
-        image_features = self.get_model().mm_projector(image_features)
+        proj = self.get_model().mm_projector
+
+        # 把 projector 的 device/dtype 跟 image_features 对齐（避免 CPU↔CUDA、BF16↔FP16 混用）
+        p0 = next(proj.parameters(), None)
+        if p0 is not None:
+            if (p0.device != image_features.device) or (p0.dtype != image_features.dtype):
+                proj.to(device=image_features.device, dtype=image_features.dtype)
+
+        image_features = proj(image_features)
         return image_features
     
     def encode_multimodals(self, videos_or_images, video_idx_in_batch, split_sizes=None):

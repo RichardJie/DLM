@@ -536,85 +536,131 @@ class SigLipVisionModel(SigLipPreTrainedModel):
 
 
 class SigLipVisionTower(nn.Module):
-    def __init__(self, vision_tower, vision_tower_cfg, delay_load=False):
+    def __init__(self, vision_tower, vision_tower_cfg, delay_load=False, **kwargs):
         super().__init__()
 
-        self.is_loaded = False
-
-        self.config = SigLipVisionConfig()
-
+        # 记录路径/配置，但 **不要** 立刻构建任何带参数的子模块
         self.vision_tower_name = vision_tower
+        self.vision_tower_cfg = vision_tower_cfg
+        self.is_loaded = False
+        self.vision_tower = None
+        self.image_processor = None
 
-        self.image_processor = SigLipImageProcessor()
+        # 用于控制 dtype（可从外部透传）
+        self._dtype = kwargs.get("torch_dtype", torch.float16)
 
+        # 提前把 config 读出来（无参数，不会很慢），便于外部查询 hidden_size / image_size
+        try:
+            self.cfg_only = SigLipVisionConfig.from_pretrained(self.vision_tower_name)
+        except Exception:
+            # 如果本地没有标准HF配置文件，就退回到默认
+            self.cfg_only = SigLipVisionConfig()
+        self.config = self.cfg_only  # 未加载前，用这个占位
+
+        # delay_load=True：完全懒加载，不创建任何参数；否则马上加载
         if not delay_load:
-            rank0_print(f"Loading vision tower: {vision_tower}")
-            self.load_model()
-        elif getattr(vision_tower_cfg, "unfreeze_mm_vision_tower", False):
-            # TODO: better detector is needed.
-            rank0_print(f"The checkpoint seems to contain `vision_tower` weights: `unfreeze_mm_vision_tower`: True.")
-            self.load_model()
-        elif hasattr(vision_tower_cfg, "mm_tunable_parts") and "mm_vision_tower" in vision_tower_cfg.mm_tunable_parts:
-            rank0_print(f"The checkpoint seems to contain `vision_tower` weights: `mm_tunable_parts` contains `mm_vision_tower`.")
-            self.load_model()
-        else:
-            self.cfg_only = self.config
+            rank0_print(f"Loading vision tower: {self.vision_tower_name}")
+            self.load_model(device_map=kwargs.get("device_map", "auto"))
+        elif getattr(vision_tower_cfg, "unfreeze_mm_vision_tower", False) or (
+            hasattr(vision_tower_cfg, "mm_tunable_parts") and "mm_vision_tower" in vision_tower_cfg.mm_tunable_parts
+        ):
+            # 检测到需要训练视觉塔 -> 也立即加载
+            rank0_print("Vision tower appears tunable per config. Loading now.")
+            self.load_model(device_map=kwargs.get("device_map", "auto"))
 
     def load_model(self, device_map=None):
         if self.is_loaded:
-            rank0_print("{} is already loaded, `load_model` called again, skipping.".format(self.vision_tower_name))
+            rank0_print(f"{self.vision_tower_name} is already loaded, skip.")
             return
 
-        self.vision_tower = SigLipVisionModel.from_pretrained(self.vision_tower_name, device_map=device_map)
+        # 这里才真正构建/注册 HF 视觉模型（这一步才会有参数）
+        self.vision_tower = SigLipVisionModel.from_pretrained(
+            self.vision_tower_name,
+            torch_dtype=self._dtype,
+            low_cpu_mem_usage=True,
+            device_map=device_map,
+        )
 
+        # 你原本的微调裁剪：去掉最后一层+去掉head
         del self.vision_tower.vision_model.encoder.layers[-1:]
         self.vision_tower.vision_model.head = nn.Identity()
         self.vision_tower.requires_grad_(False)
 
+        # 同步真实的 config / 预处理器
+        self.config = self.vision_tower.config
+        # 如果你更偏好自定义预处理器，可以继续用 SigLipImageProcessor()
+        self.image_processor = SigLipImageProcessor(
+            size=(self.config.image_size, self.config.image_size),
+            crop_size={"height": self.config.image_size, "width": self.config.image_size},
+            image_mean=self.config.image_mean if hasattr(self.config, "image_mean") else (0.5, 0.5, 0.5),
+            image_std=(0.5, 0.5, 0.5),
+        )
+
         self.is_loaded = True
 
     def forward(self, images):
-        if type(images) is list:
-            image_features = []
+        if not self.is_loaded:
+            raise RuntimeError("SigLipVisionTower is not loaded yet. Call load_model() first.")
+
+        if isinstance(images, list):
+            feats = []
             for image in images:
-                image_forward_out = self.vision_tower(image.to(device=self.device, dtype=self.dtype).unsqueeze(0), output_hidden_states=True)
-                image_feature = image_forward_out.hidden_states[-1].to(image.dtype)
-                assert image_features.shape[-2] == 729
-                image_features.append(image_feature)
+                out = self.vision_tower(
+                    image.to(device=self.device, dtype=self.dtype).unsqueeze(0),
+                    output_hidden_states=True,
+                    return_dict=True,
+                )
+                feat = out.hidden_states[-1].to(image.dtype)  # [1, 729, C]
+                if feat.shape[-2] != self.num_patches:
+                    raise AssertionError(f"Unexpected num_patches: {feat.shape[-2]} vs {self.num_patches}")
+                feats.append(feat)
+            return torch.cat(feats, dim=0)  # [B, 729, C]
         else:
-            image_forward_outs = self.vision_tower(images.to(device=self.device, dtype=self.dtype), output_hidden_states=True)
-            image_features = image_forward_outs.hidden_states[-1].to(images.dtype)
-            assert image_features.shape[-2] == 729
+            out = self.vision_tower(
+                images.to(device=self.device, dtype=self.dtype),
+                output_hidden_states=True,
+                return_dict=True,
+            )
+            feat = out.hidden_states[-1].to(images.dtype)   # [B, 729, C]
+            if feat.shape[-2] != self.num_patches:
+                raise AssertionError(f"Unexpected num_patches: {feat.shape[-2]} vs {self.num_patches}")
+            return feat
 
-        return image_features
-
-    @property
-    def dummy_feature(self):
-        return torch.zeros(1, self.hidden_size, device=self.device, dtype=self.dtype)
 
     @property
     def dtype(self):
-        for p in self.vision_tower.parameters():
-            return p.dtype
+        if self.is_loaded:
+            for p in self.vision_tower.parameters():
+                return p.dtype
+        return self._dtype
 
     @property
     def device(self):
-        for p in self.vision_tower.parameters():
-            return p.device
+        if self.is_loaded:
+            for p in self.vision_tower.parameters():
+                return p.device
+        return torch.device("cpu")
 
     @property
     def hidden_size(self):
-        return self.config.hidden_size
+        return (self.config or self.cfg_only).hidden_size
 
     @property
     def num_patches(self):
-        return (self.config.image_size // self.config.patch_size) ** 2
+        cfg = (self.config or self.cfg_only)
+        return (cfg.image_size // cfg.patch_size) ** 2
 
     @property
     def num_patches_per_side(self):
-        return self.config.image_size // self.config.patch_size
-        # return self.model_config["vision_cfg"]["image_size"] // self.model_config["vision_cfg"]["patch_size"]
+        cfg = (self.config or self.cfg_only)
+        return cfg.image_size // cfg.patch_size
 
     @property
     def image_size(self):
-        return self.config.image_size
+        cfg = (self.config or self.cfg_only)
+        return cfg.image_size
+
+    @property
+    def dummy_feature(self):
+        # 用 cpu 占位，未加载也可工作
+        return torch.zeros(1, self.num_patches, self.hidden_size, dtype=self.dtype, device=self.device)
