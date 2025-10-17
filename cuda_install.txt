@@ -1,0 +1,12 @@
+# Step 1. 下载 CUDA 12.1 安装包
+cd /root/autodl-tmp
+wget https://developer.download.nvidia.com/compute/cuda/12.1.0/local_installers/cuda_12.1.0_530.30.02_linux.run
+
+# Step 2. 添加执行权限
+chmod +x cuda_12.1.0_530.30.02_linux.run
+
+# 4) 准备充足的临时目录
+mkdir -p /root/autodl-tmp/tmp
+export TMPDIR=/root/autodl-tmp/tmp
+
+sudo TMPDIR=$TMPDIR ./cuda_12.1.0_530.30.02_linux.run --toolkit --silent --override
