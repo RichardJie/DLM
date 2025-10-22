@@ -1,0 +1,17 @@
+{
+  "images": 3684,
+  "total_gt_boxes": 13883,
+  "total_pred_boxes": 9295,
+  "tp": 2191,
+  "fp": 7104,
+  "fn": 11692,
+  "precision": 0.2357,
+  "recall": 0.1578,
+  "f1": 0.1891,
+  "mean_IoU_matched": 0.7172,
+  "mean_L1_matched": 0.0336,
+  "iou_thresh": 0.5,
+  "time_sec": 11603.56,
+  "pretrained": "/root/llada/train/models/LLaDA-V",
+  "lora_path": "/root/llada/train/exp/llada_v_val_train_dpo_single"
+}

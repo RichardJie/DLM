@@ -1,0 +1,17 @@
+{
+  "images": 3684,
+  "total_gt_boxes": 13883,
+  "total_pred_boxes": 9008,
+  "tp": 2147,
+  "fp": 6861,
+  "fn": 11736,
+  "precision": 0.2383,
+  "recall": 0.1546,
+  "f1": 0.1876,
+  "mean_IoU_matched": 0.7203,
+  "mean_L1_matched": 0.0335,
+  "iou_thresh": 0.5,
+  "time_sec": 10729.91,
+  "pretrained": "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/models/LLaDA-V",
+  "lora_path": "/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/train/exp/llada_v_val_train_dpo"
+}

@@ -13,11 +13,11 @@ ROOT=/root/llada
 LLM_VERSION="${ROOT}/train/models/LLaDA-V"
 VISION_MODEL_VERSION="${ROOT}/train/models/siglip2-so400m-patch14-384"
 
-DPO_DATA="${ROOT}/dataset/coco2017/val2017_split/llava_multi/coco_train_dpo_final_mixed_v2_en.jsonl"
+DPO_DATA="${ROOT}/dataset/coco2017/val2017_split/llava_multi/coco_train2017_dpo_improved_for_small_objects.jsonl"
 IMAGE_ROOT="${ROOT}/dataset/coco2017/val2017_split/"
 
 PROMPT_VERSION="llava_llada"
-BASE_RUN_NAME="llada_v_val_train_dpo_single"
+BASE_RUN_NAME="llada_v_val_train_coco_train2017_dpo_improved_for_small_objects"
 LOG_DIR="${ROOT}/log"
 mkdir -p "$LOG_DIR"
 LOG_FILE="$LOG_DIR/${BASE_RUN_NAME}_$(date +%Y%m%d_%H%M%S).log"
@@ -42,8 +42,9 @@ PYTHONUNBUFFERED=1 stdbuf -oL -eL python -u llava/train/train_dpo.py \
   --gradient_accumulation_steps 4 \
   --save_strategy "epoch" \
   --save_total_limit 1 \
-  --learning_rate 1e-7 \
-  --weight_decay 0. \
+  --learning_rate 5e-6 \
+  --warmup_ratio 0.05 \
+  --lr_scheduler_type "cosine" \
   --logging_steps 1 \
   --tf32 True \
   --model_max_length 8192 \
@@ -64,4 +65,4 @@ PYTHONUNBUFFERED=1 stdbuf -oL -eL python -u llava/train/train_dpo.py \
   --label_smoothing 0.05 \
   2>&1 | tee -a "$LOG_FILE"
 
-/usr/bin/shutdown -h now
+# /usr/bin/shutdown -h now
