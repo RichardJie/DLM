@@ -15,3 +15,4 @@ current_branch=$(git rev-parse --abbrev-ref HEAD)
 
 # 推送当前分支到远程的 main 分支
 git push https://github.com/RichardJie/DLM "$current_branch":main
+
