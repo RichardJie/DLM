@@ -1,6 +1,4 @@
-dataset/coco2017
 dataset/datasets
-dataset/result
 
 train/# Python
 train/__pycache__
@@ -84,3 +82,5 @@ train/exp
 train/models
 
 log
+
+.vscode
