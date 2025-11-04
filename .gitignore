@@ -86,3 +86,6 @@ train/models
 log
 
 .vscode
+
+__pycache__/
+*.pyc
