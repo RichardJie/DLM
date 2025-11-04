@@ -56,8 +56,8 @@ PYTHONUNBUFFERED=1 stdbuf -oL -eL python -u llava/train/train_dpo.py \
   --dataloader_drop_last True \
   --freeze_backbone True \
   --lora_enable True \
-  --lora_r 32 \
-  --lora_alpha 64 \
+  --lora_r 64 \
+  --lora_alpha 128 \
   --lora_dropout 0.05 \
   --lora_weight_path "${ROOT}/train/exp/llada_v_val_train_sft" \
   --precompute_ref_log_probs False \

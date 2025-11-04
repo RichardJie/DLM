@@ -36,9 +36,9 @@ from typing import List
 # =========================
 #         配置区
 # =========================
-SOURCE_DIR   = r"/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/dataset/coco2017/val2017"      # 源图片文件夹
-FIRST_DIR    = r"/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/dataset/coco2017/val2017_split/train" # 前 80% 输出文件夹
-SECOND_DIR   = r"/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/LLaDA-V/dataset/coco2017/val2017_split/test"  # 后 20% 输出文件夹
+SOURCE_DIR   = r"/root/llada/dataset/datasets/coco2017/val2017"      # 源图片文件夹
+FIRST_DIR    = r"/root/llada/dataset/datasets/coco2017/val2017_split/train" # 前 80% 输出文件夹
+SECOND_DIR   = r"/root/llada/dataset/datasets/coco2017/val2017_split/test"  # 后 20% 输出文件夹
 
 RATIO        = 0.80             # 前部分比例（0~1），典型为 0.8
 ORDER_BY     = "name"           # 排序方式: "name" | "mtime" | "random"

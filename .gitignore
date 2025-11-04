@@ -1,4 +1,6 @@
 dataset/datasets
+dataset/eval/SFT
+dataset/result
 
 train/# Python
 train/__pycache__

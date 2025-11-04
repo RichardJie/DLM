@@ -1,16 +1,19 @@
 #!/usr/bin/env bash
-
-Base=/root/llada
-
-export CUDA_HOME=/hpc2ssd/JH_DATA/spooler/yuxuanzhao/lijungang/wujie/cuda_12_1
+export CUDA_HOME=/usr/local/cuda-12.1
 export PATH="$CUDA_HOME/bin:$PATH"
 export CUDACXX="$CUDA_HOME/bin/nvcc"
+num_node=1
+gpu_num=1
+MASTER_ADDR=${MASTER_ADDR:-"127.0.0.1"}
+MASTER_PORT=${MASTER_PORT:-"29199"}
+RANK=${RANK:-"0"}
 
-export HF_ENDPOINT=https://hf-mirror.com
-export TRANSFORMERS_OFFLINE=1
-export HF_HUB_OFFLINE=1
-export TORCHDYNAMO_DISABLE=1
-
+echo "master_addr ${MASTER_ADDR}"
+echo "master_port ${MASTER_PORT}"
+echo "node_rank ${RANK}"
+echo "gpu_num ${gpu_num}"
+echo "num_node ${num_node}"
+Base=/root/llada
 LLM_VERSION="${Base}/train/models/LLaDA-V"
 VISION_MODEL_VERSION="${Base}/train/models/siglip2-so400m-patch14-384"
 
@@ -18,18 +21,27 @@ PROMPT_VERSION="llava_llada"
 BASE_RUN_NAME="llada_v_val_train_sft"
 echo "BASE_RUN_NAME: ${BASE_RUN_NAME}"
 
-# ===== 日志设置 =====
+# ===== 新增：日志设置（目录可按需修改）=====
 LOG_DIR="${Base}/log"
 mkdir -p "$LOG_DIR"
 LOG_FILE="$LOG_DIR/${BASE_RUN_NAME}_$(date +%Y%m%d_%H%M%S).log"
 echo "Log file: $LOG_FILE"
-# ===================
-export PYTHONPATH="${Base}/train:${PYTHONPATH}"
-PYTHONUNBUFFERED=1 CUDA_VISIBLE_DEVICES=0 stdbuf -oL -eL python llava/train/train_mem.py \
+# =========================================
+
+# 单卡示例：调用时用 bash llada_v_finetune.sh 1 1
+# 不再强制设置 CUDA_VISIBLE_DEVICES，或根据需要自己在命令行外部设置
+
+# PYTHONUNBUFFERED=1 CUDA_VISIBLE_DEVICES=0,1,2 stdbuf -oL -eL \
+# python -m debugpy --listen localhost:5678 --wait-for-client \
+#   -m torch.distributed.run \
+PYTHONUNBUFFERED=1 CUDA_VISIBLE_DEVICES=2,0,1 stdbuf -oL -eL torchrun --nproc_per_node=${gpu_num} --nnodes=${num_node} \
+--master_addr=${MASTER_ADDR} --master_port ${MASTER_PORT} --node_rank=${RANK} \
+  llava/train/train_mem.py \
+  --deepspeed scripts/zero2.json \
   --model_name_or_path ${LLM_VERSION} \
   --version ${PROMPT_VERSION} \
-  --data_path "${Base}/dataset/datasets/coco2017/val2017_split/llava_multi/coco_train_sft_version2.json" \
-  --image_folder "${Base}/dataset/datasets/coco2017/val2017_split" \
+  --data_path "${Base}/dataset/coco2017/val2017_split/llava_multi/coco_train_sft_final_v2_en.json" \
+  --image_folder "${Base}/dataset/coco2017/val2017_split" \
   --video_folder "" \
   --vision_tower ${VISION_MODEL_VERSION} \
   --image_aspect_ratio anyres_max_4 \
@@ -43,9 +55,9 @@ PYTHONUNBUFFERED=1 CUDA_VISIBLE_DEVICES=0 stdbuf -oL -eL python llava/train/trai
   --bf16 True \
   --run_name $BASE_RUN_NAME \
   --output_dir "exp/$BASE_RUN_NAME" \
-  --num_train_epochs 4 \
-  --per_device_train_batch_size 8 \
-  --gradient_accumulation_steps 2 \
+  --num_train_epochs 1 \
+  --per_device_train_batch_size 4 \
+  --gradient_accumulation_steps 4 \
   --save_strategy "epoch" \
   --save_total_limit 2 \
   --learning_rate 1e-4 \
@@ -62,14 +74,14 @@ PYTHONUNBUFFERED=1 CUDA_VISIBLE_DEVICES=0 stdbuf -oL -eL python llava/train/trai
   --lazy_preprocess True \
   --report_to tensorboard \
   --torch_compile False \
+  --torch_compile_backend "inductor" \
   --dataloader_drop_last True \
   --attn_implementation sdpa \
   --use_conversation_mask False \
   --freeze_backbone True \
   --lora_enable True \
-  --lora_r 64 \
-  --lora_alpha 128 \
+  --lora_r 32 \
+  --lora_alpha 64 \
   --lora_dropout 0.05 \
   2>&1 | tee -a "$LOG_FILE"
-
-/usr/bin/shutdown -h now
+  # --pretrain_mm_mlp_adapter ${Base}/train/exp/llada_v_finetune_1092/checkpoint-1092/mm_projector.bin \
